@@ -21,7 +21,7 @@
     <input name="search">
     <button type="submit">go</button>
 </form> -->
-    <search-component v-bind:user='{!! Auth::user()->toJson() !!}'></search-component>
+   @livewire('search-component')
 </div>
 
 @endsection

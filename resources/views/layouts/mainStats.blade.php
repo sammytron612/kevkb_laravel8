@@ -9,54 +9,25 @@
     <link rel="icon" href="{{ asset('/css/favicon.png') }}" type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    <script src="{{asset('js/jquery.treetable.js')}}"></script>
+   <!-- <script src="{{asset('js/jquery.treetable.js')}}"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-
-    <link rel="stylesheet" href="{{asset('css/jquery.treetable.theme.default.css') }}" rel="stylesheet" type="text/css"/>
+  @livewireStyles
+  <!--  <link rel="stylesheet" href="{{asset('css/jquery.treetable.theme.default.css') }}" rel="stylesheet" type="text/css"/> -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="{{ asset ('css/jquery.treetable.css') }}" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet">
+  <!--  <link href="{{ asset ('css/jquery.treetable.css') }}" rel="stylesheet" type="text/css" /> -->
+  <!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    
 
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <style>
-    .chat-sender.msg {
-        -webkit-clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 12px 70%);
-        clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 12px 70%);
-        padding: 9px 9px;
-        padding-left: 21px;
-        background-color: #5D5D5D;
-        color: #fff;
-        box-sizing: border-box;
-        width: calc(100% - 53px);
-        margin-left: -9px;
-      }
-
-      .chatmsg {
-        margin-top: 5px;
-      }
-
-
-      .chat-container {
-        margin-top: 15px;
-        margin-bottom: 15px;
-          animation: fadein 2s;
-          -moz-animation: fadein 2s; /* Firefox */
-          -webkit-animation: fadein 2s; /* Safari and Chrome */
-          -o-animation: fadein 2s; /* Opera */
-      }
-
-
-
-
+    
 
       @keyframes fadein {
           from {
@@ -213,6 +184,7 @@
                 @yield('content')
             </div>
 		</div>
+    @livewireScripts
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ mix('/js/app.js') }}"></script>
     <script src="{{asset('js/rater.min.js')}}"></script>
