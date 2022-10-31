@@ -1,7 +1,7 @@
 <div class="container-fluid p-5">
     <div class="row mt-2 mx-auto">
         <div class="input-group offset-3 col-md-6">
-        <input type="search" wire:model.debounce500ms="search" placeholder="Search a solution" id="search" class="form-control h3 py-2 search-input w-50 border-right-0 border"> <span class="input-group-append"><button class="btn btn-secondary border-left-0 border"><i class="fa fa-search"></i></button></span>
+        <input type="search" wire:model.debounce.500ms="search" placeholder="Search a solution" id="search" class="form-control h3 py-2 search-input w-50 border-right-0 border"> <span class="input-group-append"><button class="btn btn-secondary border-left-0 border"><i class="fa fa-search"></i></button></span>
         </div>
     </div>
 
