@@ -108,7 +108,7 @@
                     <span class="fa fa-eye mr-1">&nbsp Views&nbsp{{ $article->views }} - </span>
                     <span class="fa fa-calendar mr-1">&nbsp{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}</span>
                     <span>&nbsp-&nbsp{{ $article->kb}}</span>
-                    <div class="rating" data-rate-value={{ $article->rating }}><div>
+           
                 </div>
         </div>
         @endforeach
