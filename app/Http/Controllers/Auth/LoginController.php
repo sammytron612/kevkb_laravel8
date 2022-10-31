@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Session;
+use App\Http\Helpers\OTPNotification;
 
 class LoginController extends Controller
 {
@@ -50,10 +51,15 @@ class LoginController extends Controller
 
         protected function authenticated(Request $request, $user)
     {
+ 
         $drafts = new \App\Http\Helpers\DraftCount;
         Session::put('count', $drafts->numberOf());
         $avatar = new \App\Http\Helpers\Avatar;
         Session::put('avatarI', $avatar->avatarInit());
+        Session::put('otp', 0);
+        $otp = new OTPNotification;
+        $otp->otp();
         $avatar->avatarColour();
+        
     }
 }

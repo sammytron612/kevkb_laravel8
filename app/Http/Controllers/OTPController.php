@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Auth;
 use App\User;
 use App\Http\Helpers\OTPNotification;
+use Session;
 
 
 class OTPController extends Controller
@@ -19,6 +20,7 @@ class OTPController extends Controller
 
     public function auth(Request $request)
     {
+        
         $code = $request->otp;
 
         $user = User::find(Auth::User()->id);
@@ -26,8 +28,7 @@ class OTPController extends Controller
         if ($code == $user->otp)
         {
 
-            $user->otp_verified = 1;
-            $user->save();
+            Session::put('otp', 1);
 
         }
         else{

@@ -17,7 +17,6 @@ class OTPNotification
         Notification::send(Auth::User(), new OTP($data));
         $user = User::find(Auth::User()->id);
         $user->otp = $rand;
-        $user->otp_verified = 0;
         $user->save();
 
         return;

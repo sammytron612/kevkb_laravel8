@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <style>
-    
+    [x-cloak] { display: none !important; }
 
       @keyframes fadein {
           from {
