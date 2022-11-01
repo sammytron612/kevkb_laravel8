@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
-    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
+  
 
 
     <style>

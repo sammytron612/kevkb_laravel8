@@ -13,15 +13,18 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Styles -->
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     @livewireStyles()
     <style>
         body, html { min-height: 100%; }
+        [x-cloak] {display:none !important;}
     </style>
 </head>
 <body class="back">

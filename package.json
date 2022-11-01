@@ -34,6 +34,7 @@
         "alpinejs": "^3.10.5",
         "caniuse-lite": "^1.0.30001426",
         "moment": "^2.26.0",
+        "rateyo": "^3.0.0-alpha.2",
         "sweetalert2": "^11.6.5"
     }
 }

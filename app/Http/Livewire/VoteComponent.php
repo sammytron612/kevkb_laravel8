@@ -18,6 +18,7 @@ class VoteComponent extends Component
     public $comment;
     public $show = false;
     public $name;
+    public $rating;
 
     public function mount()
     {
