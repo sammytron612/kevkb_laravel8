@@ -74,36 +74,8 @@
         </div>
 
     <br>
-    <div style="color:black;font-family: 'Times New Roman', Times, serif; font-size:16px" class="row">
-        <div class="form-group col-12">
-            <div>Helpful?&nbsp&nbsp<button id="yes" class="vote btn btn-success btn-sm">Yes</button>
-                <button id="no" class="vote btn btn-warning btn-sm">no</button>&nbsp
-                {{ $article->percentage }}%&nbsp Found this article helpful
-                <div class="d-flex justify-content-center">
-                    <div  id="spinner1" style="display:none" class="spinner-border text-primary" role="status">
-                      <span class="sr-only">Loading...</span>
-                    </div>
-                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div style="color:black;font-family: 'Times New Roman', Times, serif; font-size:16px" class="row">
-        <div class="form-group col-12">
-            <h5 for="comment">Suggest an improvement</h5>
-            <textarea class="form-control w-100" name="comment" id="comment"></textarea>
-            Please rate this article
-            <div class="d-flex justify-content-center">
-                <div  id="spinner" style="display:none" class="spinner-border text-primary" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
-             </div>
-            <div class="pt-2 pb-2 pl-0" id="rateYo"></div>
-            <button onclick="ajax_comment()" type="text" class="mt-1 btn btn-primary">Submit</button>
-        </div>
-
-    </div>
-
+    @livewire('vote-component',['pct'=>$article->percentage, 'articleId'=>$article->id])
+    
     <hr>
     <div style="color:black;font-family: 'Times New Roman', Times, serif; font-size:16px" class="row mt-2">
             <div  class="form-group col-12">
@@ -123,36 +95,6 @@
                 </div>
             </div>
     </div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Email Article</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('email.article') }}" method="post">
-                @csrf
-                <div class="d-flex justify-content-center">
-                    <input class="w-75" type="email" name="email" required>
-                </div>
-                <input id="articleid" type="hidden" name="id" value="{{ $article->id }}">
-                <input type="hidden" name="title" value="{{ $article->title }}">
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Send</button>
-                </form>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 </div>
