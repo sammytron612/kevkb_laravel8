@@ -13,7 +13,7 @@
 <h3><span class="fa fa-eye fa-1x mr-3"></span>View article<button onclick="history.back()" class="float-right btn btn-primary">Back</button></h3>
 
 <hr>
-<span class="ml-auto"><h3>{{ $article->title }}</h3></span>
+<span class="ml-auto"><h3 class="text-primary">{{ $article->title }}</h3></span>
 <hr>
 
     <div style="font-size:20px" class="row">
@@ -30,7 +30,7 @@
 
     <div style="font-size:20px" class="row">
         <div class="col-md-6 col-sm-12">
-            Section&nbsp-&nbsp<a href="{{ url("articles_index/$article->sectionid")}}">{{ $article->sections->name }}</a>
+            Section&nbsp-&nbsp<Span class="text-primary">{{ $article->sections->name }}</a>
         </div>
         <div class="col-md-3 col-sm-6">
             <span>{{ $article->kb }}</span>
@@ -74,35 +74,11 @@
         </div>
 
     <br>
-    @livewire('vote-component',['pct'=>$article->percentage, 'articleId'=>$article->id])
+    @livewire('vote-component',['pct'=>$article->percentage, 'article'=>$article])
     
-    <hr>
-    <div style="color:black;font-family: 'Times New Roman', Times, serif; font-size:16px" class="row mt-2">
-            <div  class="form-group col-12">
-                <label for="comment"><h4>Comments</h4></label>
-                <div class="w-100">
-                    @foreach($comments as $comment)
-                    <div style="display:flex">
-                        <div style="flex1"><b>{{ $comment->users->name }}</b> - {{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}&nbsp-&nbsp</div>
-                        <div style="" class='rating' data-rate-value='{{ $article->rating }}'></div>
-                    </div>
-                    @if($comment->comment)
-                    <i>"{{ $comment->comment }}"</i>
-                    @endif
-                    <br>
-                    <br>
-                    @endforeach
-                </div>
-            </div>
-    </div>
-
-
 </div>
 </div>
 <script src="{{asset('js/rater.min.js')}}"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 <script>
 
 
@@ -113,102 +89,6 @@ var options = {
             }
             $(".rating").rate(options);
 
-function vote(vote){
-
-    $('#spinner1').show();
-    if(vote =="yes"){vote = 1} else {vote = 0}
-    var articleid = $('#articleid').val();
-    $.ajax({
-    type: "post",
-    url: "{{ route ('articles.ratingset') }}",
-    dataType: "json",
-    data: {"_token": "{{ csrf_token() }}", "articleid": articleid,"vote": vote},
-    success: function (response) {
-        $('#spinner1').hide();
-        console.log(response)
-        if(response == "success"){
-            Swal.fire({
-            title: 'Thanks for your vote',
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            }
-        })
-        } else
-        {
-            Swal.fire({
-            icon: "error",
-            title: 'You have voted for this 3 times!!',
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            }
-        })
-
-        }
-
-        }
-        });
-
-
-}
-function ajax_comment()
-{
-
-    $('#spinner').show();
-    var articleid = $('#articleid').val();
-    var comment = $('#comment').val();
-    var rating = $("#rateYo").rateYo("rating");
-    
-
-    $.ajax({
-    type: "post",
-    url: "{{ route ('comments.addComment') }}",
-    dataType: "json",
-    data: {"_token": "{{ csrf_token() }}","rating": rating, "articleid": articleid,"comment": comment},
-    success: function (response) {
-        $('#spinner').hide();
-     
-        if(response == "success"){
-            Swal.fire({
-            title: 'Thanks for your comment',
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            }
-        })
-        $('#comment').val('')
-        $("#rateYo").rateYo("option", "rating", "0");
-        }
-
-        }
-        });
-}
-
-$(document).ready(function(){
-
-    $(".vote").click(function(){
-
-    vote(this.id)
-});
-
-});
-
-$(document).ready(function(){
-
- $("#rateYo").rateYo({
-   rating: 0,
-   halfStar: true,
-   starWidth: "20px"
- });
-
-});
 
 
 

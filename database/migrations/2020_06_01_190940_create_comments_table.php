@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('articleid');
             $table->string('comment',250);
             $table->integer('userid');
+            $table->string('name')->nullable();
             $table->integer('rating',6,4)->nullable();
             $table->timestamps();
         });
