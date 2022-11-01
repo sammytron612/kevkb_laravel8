@@ -36,10 +36,10 @@
                 </form>
                 
             </div>
-            <button x-show="open == false" x-on:click="open = ! open" class="btn btn-primary">Create a Comment</button>
+            <button x-show="open == false" x-on:click="open = ! open" class="btn btn-primary mt-3">Create a Comment</button>
         </div>
     </div>
-
+    <hr>
     <div style="color:black;font-family: 'Times New Roman', Times, serif; font-size:16px" class="row mt-2">
         <div  class="form-group col-12">
             <label for="comment"><h4>Comments</h4></label>
