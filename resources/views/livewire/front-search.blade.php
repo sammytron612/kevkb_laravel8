@@ -10,7 +10,7 @@
         <div class="mt-5 p-5 bg-white">
             @foreach($articles as $article)
                 <div class="mt-3">
-                    <a class="h5 text-primary" href="{{url('kb-front/show?token=kevinlesliewilson13111969&'.'id='.$article->id)}}">{{$article->title}}</a>
+                    <a class="h5 text-primary" href="{{url('kb-front/show?token=kevinlesliewilson13111969'.'&id='.$article->id)}}">{{$article->title}}</a>
                     <span class="text-warning rating" data-rate-value="{{$article->rating}}"></span>
                     <div>
                         <span class="fa fa-user mr-1">&nbspAuthored by&nbsp{{ $article->author_name }} - </span>
