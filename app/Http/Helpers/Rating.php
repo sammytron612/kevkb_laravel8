@@ -16,7 +16,7 @@ class Rating
 
         $avg_rating = round($avg_rating, 1);
 
-        Articles::where('id',6)->update(['rating' => 3.5]);
+        Articles::where('id',$articleid)->update(['rating' => $avg_rating]);
    
 
         return true;
@@ -41,7 +41,7 @@ class Rating
         return round($percentage,1);}
     }
 
-    public function set_rating($articleid,$userid,$vote)
+    public function set_rating($articleid,$userid = 0,$vote)
     {
 
         $count = Ratings::where('articleid',$articleid)->Where('userid',$userid)->get()->count();

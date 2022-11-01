@@ -51,9 +51,10 @@ class VoteComponent extends Component
 
     public function submit()
     {
-        $response = Comments::create(['articleid' => $this->article->id, 'comment' => $this->comment, 'userid' =>0, 'name' => $this->name]); 
+        $response = Comments::create(['articleid' => $this->article->id, 'comment' => $this->comment, 'userid' =>0, 'name' => $this->name, 'rating'=>$this->rating]); 
 
         $instance = new Rating;
+        $instance->avg_comment_rating($this->article->id);
 
         $article = Articles::find($this->article->id);
         $user = User::find($article->author);
