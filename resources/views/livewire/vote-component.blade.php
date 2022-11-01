@@ -47,7 +47,7 @@
                 @foreach($comments as $comment)
                 <div>
                     <div style="flex1"><b>{{ $comment->userid ? $comment->users->name : $comment->name}}</b> - {{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</div>
-                    <div style="" class='text-warning rating' data-rate-value='{{ $article->rating }}'></div>
+                    <div style="" class='text-warning rating' data-rate-value='{{ $comment->rating }}'></div>
                 </div>
                 @if($comment->comment)
                 <i>"{{ $comment->comment }}"</i>
