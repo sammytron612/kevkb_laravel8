@@ -25,7 +25,7 @@
     
 
 
-    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
             .card-img-top {
             width: 100%;

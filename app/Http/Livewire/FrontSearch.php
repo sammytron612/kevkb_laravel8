@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Articles;
 use Illuminate\Support\Facades\DB;
 
-class SearchComponent extends Component
+class FrontSearch extends Component
 {
     public $search;
 
@@ -62,13 +62,8 @@ class SearchComponent extends Component
             $articles = [];
         }
 
-        return view('livewire.search-component',['articles' => $articles]);
+        return view('livewire.front-search',['articles' => $articles]);
     
     }
 
-    public function deleteArticle(Articles $article)
-    {
-        $article->delete();
-        $this->dispatchBrowserEvent('update-success');
-    }
 }

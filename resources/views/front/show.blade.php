@@ -1,21 +1,17 @@
-@extends('layouts.mainStats')
+@extends('layouts.app')
 
 @section('content')
 
 
-<div class="container-fluid">
+<div class="container">
 
     <input id="avg_rating" type="hidden" value="{{ $article->avg_rating }}">
     <br>
 
 <div class="smokey p-5 border shadow">
-@if ($article->scope == "public")
-<h3><span class="text-primary fa fa-eye fa-1x mr-3"></span>View article<span><button type="button" class="pull-right btn btn-primary" data-toggle="modal" data-target="#modelId">
-  Email
-</button></span></h3>
-@else
-<h3><span class="fa fa-eye fa-1x mr-3"></span>View article</h3>
-@endif
+
+<h3><span class="fa fa-eye fa-1x mr-3"></span>View article<button onclick="history.back()" class="float-right btn btn-primary">Back</button></h3>
+
 <hr>
 <span class="ml-auto"><h3>{{ $article->title }}</h3></span>
 <hr>

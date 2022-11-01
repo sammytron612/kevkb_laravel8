@@ -88,3 +88,11 @@ Route::post('/send-notification', 'ProfileController@sendFCMNotification')->name
 Route::get('/otp', 'OTPController@index')->name('otp')->middleware('auth');
 Route::post('/otp-auth', 'OTPController@auth')->name('otp-auth')->middleware('auth');
 Route::get('/send-otp', 'OTPController@resendOTP')->name('send-otp')->middleware('auth','otp');
+
+////////////// kb front /////////////////
+
+Route::get('/kb-front', function (){
+    return view('front.index');
+})->middleware('kbFront')->middleware('kbFront');
+
+Route::get('/kb-front/show', 'kbFrontController@show')->name('kb-front.show')->middleware('kbFront');

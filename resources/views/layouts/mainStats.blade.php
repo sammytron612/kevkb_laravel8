@@ -9,26 +9,19 @@
     <link rel="icon" href="{{ asset('/css/favicon.png') }}" type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <script src="{{asset('js/jquery.treetable.js')}}"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
-   <!-- <script src="{{asset('js/jquery.treetable.js')}}"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-  @livewireStyles
-  <!--  <link rel="stylesheet" href="{{asset('css/jquery.treetable.theme.default.css') }}" rel="stylesheet" type="text/css"/> -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-  <!--  <link href="{{ asset ('css/jquery.treetable.css') }}" rel="stylesheet" type="text/css" /> -->
-  <!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{{asset('css/jquery.treetable.theme.default.css') }}" rel="stylesheet" type="text/css"/>
+    @livewireStyles()
+    <link href="{{ asset ('css/jquery.treetable.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <style>
-    [x-cloak] { display: none !important; }
 
+      [x-cloak] {display: none !important;}
       @keyframes fadein {
           from {
               opacity: 0;
@@ -158,11 +151,6 @@
                 @endif
            </a>
          </li>
-         
-          <li class="{{ (request()->is('comments*')) ? 'active' : '' }}">
-            <a href="{{ route('comments.viewComments') }}"><span class="fa fa-comments mr-3"></span>Comments</a>
-          </li>
-
 
             <li>
             <a href="{{ route('logout') }}"
@@ -184,7 +172,7 @@
                 @yield('content')
             </div>
 		</div>
-    @livewireScripts
+    @livewireScripts()
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ mix('/js/app.js') }}"></script>
     <script src="{{asset('js/rater.min.js')}}"></script>
