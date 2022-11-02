@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/','HomeController@index')->name('home')->middleware('auth','otp');
+Route::get('/','ArticlesController@index')->name('home')->middleware('auth','otp');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth','otp');
+Route::get('/home', 'ArticlesController@index')->name('home')->middleware('auth','otp');
 
 Route::get('/attachments/download/{attachment}', [ 'as' => 'attachments.download', 'uses' => 'AttachmentsController@download'])->middleware('auth','otp');
 Route::post('/attachments/delete_attach', [ 'as' => 'attachments.delete_attach', 'uses' => 'AttachmentsController@delete_attach'])->middleware('auth','otp');

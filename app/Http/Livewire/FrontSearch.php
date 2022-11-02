@@ -21,6 +21,8 @@ class FrontSearch extends Component
 
             $search1 = Articles::where('published', 1)
             ->where('approved', 1)
+            ->where('bts', 1)
+            ->where('scope','public')
             ->where(function ($q) {
             $q->where('title','like','%' . $this->search . '%')
             ->orWhere('tags','like','%' . $this->search . '%');
@@ -42,13 +44,13 @@ class FrontSearch extends Component
                 $sql = "SELECT articles.id,articles.title,articles.views, articles.author_name as author_name, articles.kb as kb, articles.created_at as created_at, articles.rating as rating
                                 FROM articles
                                 join article_bodies ON articles.id = article_bodies.id
-                                WHERE MATCH(article_bodies.body) AGAINST(? IN boolean mode) AND articles.published = 1 AND articles.approved = 1 AND article_bodies.id NOT IN (". implode(',', $row) .")";
+                                WHERE MATCH(article_bodies.body) AGAINST(? IN boolean mode) AND articles.published = 1 AND articles.approved = 1 AND articles.bts = 1 AND article_bodies.id NOT IN (". implode(',', $row) .")";
                 } else
                 {
                     $sql = "SELECT articles.id,articles.title,articles.views, articles.author_name as author_name, articles.kb as kb, articles.created_at as created_at, articles.rating as rating
                                 FROM articles
                                 join article_bodies ON articles.id = article_bodies.id
-                                WHERE MATCH(article_bodies.body) AGAINST(? IN boolean mode) AND articles.published = 1 AND articles.approved = 1";
+                                WHERE MATCH(article_bodies.body) AGAINST(? IN boolean mode) AND articles.published = 1 AND articles.approved = 1 AND articles.bts = 1";
 
                 }
                 $body = DB::select($sql,[$this->search]);

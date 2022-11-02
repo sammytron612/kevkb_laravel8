@@ -16,106 +16,71 @@ use App\Http\Helpers\NewArticleNotifications;
 class ArticlesController extends Controller
 {
 
-    private function stealth()
-    {
-        return Settings::find(1)->stealth;
-    }
 
     private function approval()
     {
-        return Settings::find(1)->approve_articles;
+        return Settings::first()->approve_articles;
     }
 
     private function EditorDelete()
     {
-        return Settings::find(1)->allow_delete;
+        return Settings::first()->allow_delete;
     }
 
 
     public function index(Request $request, $sectionid = '%')
     {
 
+        $bts = Settings::first()->bts;
 
-        if($this->stealth() && (Auth::user()->role == "editor" || Auth::user()->role == "viewer"))
-        {
 
-            $data['articles'] = Articles::where('sectionid', 'like', $sectionid)
-                                    ->wherein('sectionid',['35','37','38','39','40','41','45','50'])
+        $data['articles'] = Articles::where('sectionid', 'like', $sectionid)
+        ->where('published',1)
+        ->where('approved',1)
+        ->when($bts, function ($q){
+            $q->where('bts', 1);
+        })
+        ->select('id','title','kb','sectionid','author','views','rating', 'created_at')
+        ->orderBy('title')
+        ->paginate(15);
+
+
+
+        $data['ratings'] = Articles::where('sectionid', 'like', $sectionid)
                                     ->where('published',1)
                                     ->where('approved',1)
-                                    ->select('id','title','kb','sectionid','author','views','rating', 'created_at')
-                                    ->orderBy('title')
-                                    ->paginate(15);
+                                    ->when($bts, function ($q){
+                                        $q->where('bts', 1);
+                                    })
+                                    ->select('id','title','sectionid','author','views','rating', 'created_at')
+                                    ->orderBy('rating','desc')->limit(5)->get();
+
+        $data['views'] = Articles::where('sectionid', 'like', $sectionid)
+                                    ->where('published',1)
+                                    ->where('approved',1)
+                                    ->when($bts, function ($q){
+                                        $q->where('bts', 1);
+                                    })
+                                    ->select('id','title','sectionid','author','views','rating', 'created_at')
+                                    ->orderBy('views','desc')->limit(5)->get();
+
+        $data['recents'] = Articles::where('sectionid', 'like', $sectionid)
+                                    ->where('published',1)
+                                    ->where('approved',1)
+                                    ->when($bts, function ($q){
+                                        $q->where('bts', 1);
+                                    })
+                                    ->select('id','title','sectionid','author','views','rating', 'created_at')
+                                    ->orderBy('created_at','desc')->limit(8)->get();
 
 
+        $sql =  "SELECT users.name, COUNT(*) as count FROM articles
+        join users
+        on articles.author = users.id
+        where articles.sectionid like '$sectionid' AND articles.published = 1 AND articles.approved = 1 GROUP by articles.author order by count desc limit 5";
 
-            $data['ratings'] = Articles::where('sectionid', 'like', $sectionid)
-                                        ->wherein('sectionid',['35','37','38','39','40','41','45','50'])
-                                        ->where('published',1)
-                                        ->where('approved',1)
-                                        ->select('id','title','sectionid','author','views','rating', 'created_at')
-                                        ->orderBy('rating','desc')->limit(5)->get();
+        $data['authors'] = DB::select($sql);
 
-            $data['views'] = Articles::where('sectionid', 'like', $sectionid)
-                                        ->wherein('sectionid',['35','37','38','39','40','41','45','50'])
-                                        ->where('published',1)
-                                        ->where('approved',1)
-                                        ->select('id','title','sectionid','author','views','rating', 'created_at')
-                                        ->orderBy('views','desc')->limit(5)->get();
-
-            $data['recents'] = Articles::where('sectionid', 'like', $sectionid)
-                                        ->wherein('sectionid',['35','37','38','39','40','41','45','50'])
-                                        ->where('published',1)
-                                        ->where('approved',1)
-                                        ->select('id','title','sectionid','author','views','rating', 'created_at')
-                                        ->orderBy('created_at','desc')->limit(8)->get();
-
-
-            $sql =  "SELECT users.name, COUNT(*) as count FROM articles
-            join users
-            on articles.author = users.id
-            where articles.sectionid like '$sectionid' AND articles.published = 1 AND articles.approved = 1 GROUP by articles.author order by count desc limit 5";
-
-            $data['authors'] = DB::select($sql);
-
-        }
-        else
-        {
-            $data['articles'] = Articles::where('sectionid', 'like', $sectionid)
-            ->where('published',1)
-            ->where('approved',1)
-            ->select('id','title','kb','sectionid','author','views','rating', 'created_at')
-            ->orderBy('title')
-            ->paginate(15);
-
-
-
-            $data['ratings'] = Articles::where('sectionid', 'like', $sectionid)
-                                        ->where('published',1)
-                                        ->where('approved',1)
-                                        ->select('id','title','sectionid','author','views','rating', 'created_at')
-                                        ->orderBy('rating','desc')->limit(5)->get();
-
-            $data['views'] = Articles::where('sectionid', 'like', $sectionid)
-                                        ->where('published',1)
-                                        ->where('approved',1)
-                                        ->select('id','title','sectionid','author','views','rating', 'created_at')
-                                        ->orderBy('views','desc')->limit(5)->get();
-
-            $data['recents'] = Articles::where('sectionid', 'like', $sectionid)
-                                        ->where('published',1)
-                                        ->where('approved',1)
-                                        ->select('id','title','sectionid','author','views','rating', 'created_at')
-                                        ->orderBy('created_at','desc')->limit(8)->get();
-
-
-            $sql =  "SELECT users.name, COUNT(*) as count FROM articles
-            join users
-            on articles.author = users.id
-            where articles.sectionid like '$sectionid' AND articles.published = 1 AND articles.approved = 1 GROUP by articles.author order by count desc limit 5";
-
-            $data['authors'] = DB::select($sql);
-        }
 
         $data['editor_delete'] = $this->EditorDelete();
 
@@ -184,6 +149,7 @@ class ArticlesController extends Controller
             $article->title = $request->title;
             $article->slug = $request->title;
             $article->author = $user;
+            $article->bts = $request->bts;
             //$article->author_name = $user_name;
 
             $article->sectionid = $request->sectionid;

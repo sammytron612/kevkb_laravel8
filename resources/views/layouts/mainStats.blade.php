@@ -8,7 +8,7 @@
 
     <link rel="icon" href="{{ asset('/css/favicon.png') }}" type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+ 
     <script src="{{asset('js/jquery.treetable.js')}}"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -110,11 +110,6 @@
                     @endif
                 </div>
         <ul class="list-unstyled components mb-5">
-
-
-          <li>
-            <a href="/home"><span class="fa fa-dashboard mr-3"></span>Dashboard</a>
-          </li>
 
           <li>
               <a href="{{ url('articles_index') }}"><span class="fa fa-newspaper-o mr-3"></span>Articles</a>

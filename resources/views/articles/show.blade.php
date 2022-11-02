@@ -27,9 +27,14 @@
             <span class="fa fa-eye mr-1">&nbsp Views&nbsp{{ $article->views }} </span>
         </div>
 
-         <div class="col-md-6 col-sm-12">
+         <div class="col-md-3 col-sm-12">
             <span class="fa fa-calendar mr-1">&nbsp&nbspCreated&nbsp{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}</span>
          </div>
+
+         <div class="col-md-3 col-sm-12">
+            <span>BTS&nbsp{{ $article->bts ? 'Yes' : 'No' }}</span>
+         </div>
+         
     </div>
 
     <div style="font-size:20px" class="row">

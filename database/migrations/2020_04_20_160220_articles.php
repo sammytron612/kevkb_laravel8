@@ -26,6 +26,7 @@ class Articles extends Migration
             $table->integer('views')->default(0);
             $table->integer('attachCount')->default(0);
             $table->integer('notify_sent')->nullable();
+            $table->smallInteger('bts')->default(0);
             $table->timestamps();
 
         });

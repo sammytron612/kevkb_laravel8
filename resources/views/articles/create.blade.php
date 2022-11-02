@@ -91,6 +91,15 @@
                 </select>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">BTS</label>
+                <select class="custom-select" name="bts" id="">
+                  <option selected value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+            </div>
+        </div>
      </div>
 
 

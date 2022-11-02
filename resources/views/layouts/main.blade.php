@@ -65,9 +65,7 @@
                     @endif
                 </div>
         <ul class="list-unstyled components mb-5">
-          <li>
-            <a href="/home"><span class="fa fa-dashboard mr-3"></span>Dashboard</a>
-          </li>
+          
           <li class="{{ (request()->is('articles_index')) ? 'active' : '' }}">
               <a href="{{ url('articles_index') }}"><span class="fa fa-newspaper-o mr-3"></span>Articles</a>
           </li>

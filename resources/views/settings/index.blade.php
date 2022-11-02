@@ -5,16 +5,16 @@
 
 <div class="container-fluid">
 
-<div class="smokey p-5 border shadow">
-<h1><span class="text-primary fa fa-cog fa-1x mr-3"></span>Settings</h1>
-<hr>
+    <div class="smokey p-5 border shadow">
+    <h1><span class="text-primary fa fa-cog fa-1x mr-3"></span>Settings</h1>
+    <hr>
 
-<br>
+    <br>
 
-    <settings-component class="mt-1" user="{{ Auth::user()->role }}"></settings-component>
+        @livewire('settings-component')
 
 
-</div>
+    </div>
 
 </div>
 
