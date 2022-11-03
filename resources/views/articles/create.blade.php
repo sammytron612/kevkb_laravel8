@@ -76,8 +76,8 @@
             <div class="form-group">
                 <label for="">Scope</label>
                 <select class="custom-select" name="scope" id="">
-                    <option selected value="private">Private</option>
-                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option selected value="public">Public</option>
                 </select>
             </div>
         </div>
