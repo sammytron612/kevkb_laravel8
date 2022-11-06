@@ -17,7 +17,7 @@
     session(['previous' => url()->current()]);
 @endphp
 
-<div class="smokey mt-5 p-3 p-md-3 border shadow">
+<div class="smokey mt-5 p-3 p-md-5 border shadow">
 <h1><span class="text-primary fa fa-newspaper-o fa-1x mr-3"></span><span>Articles</span> @can('isViewer')
     @else <span><a href="{{ route('articles.create') }}" class="pull-right btn btn-primary">New Article</a></span>
 @endcan
