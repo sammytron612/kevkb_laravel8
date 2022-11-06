@@ -77,7 +77,7 @@
     <hr>
 
         <div class="w-100">
-            <div style="overflow-x:auto;white-space:normal" class="w-100 border p-5">
+            <div style="overflow-x:auto;white-space:normal" class="w-100 border p-2 p-md-5">
                     @php echo $body->body @endphp
             </div>
         </div>
