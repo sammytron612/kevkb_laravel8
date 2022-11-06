@@ -22,8 +22,8 @@
 <hr>
 
 
-    <div class="ml-2 row d-flex col-sm-12 mt-5">
-        <div class="col-md-4 p-2">
+    <div class="ml-2 row d-flex mt-5">
+        <div class="col-md-4 col-sm-12 p-2">
             <div class="w-75 card">
                 <a href=" {{ route('admin.invites') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/invites.png') }}" alt="invites"></a>
                     <div class="text-center card-body">
