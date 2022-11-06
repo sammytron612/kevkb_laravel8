@@ -25,7 +25,7 @@
     <div class="ml-2 row">
         <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
             <div class="card w-75">
-                <a href=" {{ route('admin.invites') }} " class="stretched-link"><img class="card-img-top w-100" src="{{ asset('images/invites.png') }}" alt="invites"></a>
+                <a href=" {{ route('admin.invites') }} " class="stretched-link"><img class="img-fluid w-100" src="{{ asset('images/invites.png') }}" alt="invites"></a>
                     <div class="text-center card-body">
 
                             <!--Title-->
