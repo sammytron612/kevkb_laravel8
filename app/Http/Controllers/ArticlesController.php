@@ -12,6 +12,7 @@ use App\ArticleBody;
 use App\Settings;
 use App\Ratings;
 use App\Http\Helpers\NewArticleNotifications;
+use Session;
 
 class ArticlesController extends Controller
 {
@@ -30,6 +31,13 @@ class ArticlesController extends Controller
 
     public function index(Request $request, $sectionid = '%')
     {
+        $user = Auth::user();
+        $data['count'] = count($user->unreadNotifications);
+        $data['notifications'] = $user->unreadNotifications()->limit(7)->get();
+
+        $drafts = new \App\Http\Helpers\DraftCount;
+        Session::put('count', $drafts->numberOf());
+
 
         $bts = Settings::first()->bts;
 
