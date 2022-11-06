@@ -15,7 +15,7 @@
       @endif
 <div class="smokey mt-5 p-2 p-md-5 border shadow">
     <div class="row align-items-center">
-        <div class="col-6 p-5">
+        <div class="col-6 p-2">
             <h1><i class="text-primary fa fa-user fa-1x mr-3"></i>Admin</h1>
         </div>
     </div>
