@@ -158,7 +158,7 @@
     	</nav>
 
         <!-- Page Content  -->
-            <div  id="content" class="pt-5 p-2 p-md-5">
+            <div  id="content" class="pt-5 p-0 p-md-5">
                 @yield('content')
             </div>
 		</div>
