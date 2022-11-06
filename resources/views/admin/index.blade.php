@@ -22,7 +22,7 @@
 <hr>
 
 
-    <div class="ml-2 row d-flex">
+    <div class="ml-2 row">
         <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
             <div class="card w-75">
                 <a href=" {{ route('admin.invites') }} " class="stretched-link"><img class="card-img-top w-100" src="{{ asset('images/invites.png') }}" alt="invites"></a>
@@ -39,8 +39,8 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2">
-            <div class="w-75 card">
+        <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
+            <div class="card w-75">
                 <a href=" {{ route('admin.usermanagement') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/users.jpg') }}" alt="User Management"></a>
                     <div class="card-body text-center">
                             <!--Title-->
@@ -53,8 +53,8 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2">
-            <div class="w-75 card">
+        <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
+            <div class="card w-75">
                 <a href=" {{ route('admin.approvals') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/approvals.png') }}" alt="invites"></a>
                     <div class="card-body text-center">
                         <!--Title-->
@@ -69,10 +69,10 @@
 
     </div>
 
-    <div class="ml-2 row d-flex">
+    <div class="ml-2 row">
 
-        <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2">
-            <div class="w-75 card">
+        <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
+            <div class="card w-75">
                 <a href=" {{ route('notifications.create') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/comment.jpg') }}" alt="User Management"></a>
                     <div class="text-center card-body">
                         <!--Title-->
