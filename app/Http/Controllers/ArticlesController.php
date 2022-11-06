@@ -12,7 +12,7 @@ use App\ArticleBody;
 use App\Settings;
 use App\Ratings;
 use App\Http\Helpers\NewArticleNotifications;
-use Session;
+
 
 class ArticlesController extends Controller
 {
