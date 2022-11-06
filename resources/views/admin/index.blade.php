@@ -24,7 +24,7 @@
 
     <div class="ml-2 row d-flex">
         <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2">
-            <div class="w-75 card">
+            <div class="w-75 card d-flex justify-content-center">
                 <a href=" {{ route('admin.invites') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/invites.png') }}" alt="invites"></a>
                     <div class="text-center card-body">
 
