@@ -7,7 +7,7 @@
 
 
     @if(count($articles))
-        <div class="mt-5 p-5 bg-white">
+        <div class="mt-5 p-2 p-md-5 bg-white">
             @foreach($articles as $article)
                 <div class="mt-3">
                     <a class="h5 text-primary" href="{{route('articles.show', $article->id)}}">{{$article->title}}</a>-
