@@ -55,7 +55,7 @@
 
         <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
             <div class="card w-75 h-100">
-                <a href=" {{ route('admin.approvals') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/approvals.png') }}" alt="invites"></a>
+                <a href=" {{ route('admin.approvals') }} " class="stretched-link"><img class="img-fluid" src="{{ asset('images/approvals.png') }}" alt="invites"></a>
                     <div class="card-body text-center">
                         <!--Title-->
                         <h4 class="card-title">Approvals</h4>
