@@ -15,7 +15,7 @@
            @endphp
       @endif
 <div class="smokey p-2 p-md-5 mt-5 border shadow">
-<h1><span class="text-primary fa fa-newspaper-o fa-1x mr-3"></span>New article</h1>
+<h1 class="text-center text-md-left"><span class="text-primary fa fa-newspaper-o fa-1x mr-3"></span>New article</h1>
 <hr>
 
 
