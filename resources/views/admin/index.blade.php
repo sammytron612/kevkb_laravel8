@@ -13,7 +13,7 @@
                Session::forget('success');
            @endphp
       @endif
-<div class="smokey mt-5 p-2 p-md-3 border shadow">
+<div class="smokey mt-5 p-2 border shadow">
     <div class="row align-items-center">
         <div class="col-6">
             <h1><i class="text-primary fa fa-user fa-1x mr-3"></i>Admin</h1>
@@ -35,7 +35,7 @@
 
 
     <div class="ml-2 row d-flex col-sm-12 mt-5">
-        <div class="col-md-4 p-5 p-md-25  p-2">
+        <div class="col-md-4 p-25  p-2">
             <div class="w-75 card">
                 <a href=" {{ route('admin.invites') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/invites.png') }}" alt="invites"></a>
                     <div class="text-center card-body">
