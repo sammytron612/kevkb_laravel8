@@ -13,29 +13,17 @@
                Session::forget('success');
            @endphp
       @endif
-<div class="smokey mt-5 p-2 border shadow">
+<div class="smokey mt-5 p-5 border shadow">
     <div class="row align-items-center">
         <div class="col-6 p-3">
             <h1><i class="text-primary fa fa-user fa-1x mr-3"></i>Admin</h1>
-        </div>
-        <div class="d-flex justify-content-end col-6">
-            <div class="custom-control custom-switch">
-                @if($stealth)
-                    <input onchange="stealth(this.id)" checked type="checkbox" name="stealth" class="custom-control-input" id="stealth">
-                    <label class="custom-control-label" for="stealth"><h5>Stealth mode</h5></label>
-                @else
-                    <input onchange="stealth(this.id)" type="checkbox" name="stealth" class="custom-control-input" id="stealth">
-                    <label class="custom-control-label" for="stealth"><h5>Stealth mode</h5></label>
-                @endif
-
-            </div>
         </div>
     </div>
 <hr>
 
 
     <div class="ml-2 row d-flex col-sm-12 mt-5">
-        <div class="col-md-4 p-25  p-2">
+        <div class="col-md-4 p-2">
             <div class="w-75 card">
                 <a href=" {{ route('admin.invites') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/invites.png') }}" alt="invites"></a>
                     <div class="text-center card-body">
