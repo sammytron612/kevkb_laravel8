@@ -13,7 +13,7 @@
                Session::forget('success');
            @endphp
       @endif
-<div class="smokey mt-5 p-5 border shadow">
+<div class="smokey mt-5 p-2 p-md-3 border shadow">
     <div class="row align-items-center">
         <div class="col-6">
             <h1><i class="text-primary fa fa-user fa-1x mr-3"></i>Admin</h1>
