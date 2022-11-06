@@ -8,7 +8,7 @@
     <input id="avg_rating" type="hidden" value="{{ $article->avg_rating }}">
     <br>
 
-<div class="smokey p-5 border shadow">
+<div class="smokey p-1 p-md-5 border shadow">
 @if ($article->scope == "public")
 <h3><span class="text-primary fa fa-eye fa-1x mr-3"></span>View article<span><button type="button" class="pull-right btn btn-primary" data-toggle="modal" data-target="#modelId">
   Email
