@@ -22,7 +22,7 @@
 <hr>
 
 
-    <div class="ml-2 row">
+    <div class="row">
         <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
             <div class="card w-75">
                 <a href=" {{ route('admin.invites') }} " class="stretched-link"><img class="img-fluid w-100" src="{{ asset('images/invites.png') }}" alt="invites"></a>
@@ -41,7 +41,7 @@
 
         <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
             <div class="card w-75">
-                <a href=" {{ route('admin.usermanagement') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/users.jpg') }}" alt="User Management"></a>
+                <a href=" {{ route('admin.usermanagement') }} " class="stretched-link"><img class="img-fluid w-100" src="{{ asset('images/users.jpg') }}" alt="User Management"></a>
                     <div class="card-body text-center">
                             <!--Title-->
                             <h4 class="card-title">Users</h4>
@@ -55,7 +55,7 @@
 
         <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
             <div class="card w-75">
-                <a href=" {{ route('admin.approvals') }} " class="stretched-link"><img style="height:150px;" src="{{ asset('images/approvals.png') }}" alt="invites"></a>
+                <a href=" {{ route('admin.approvals') }} " class="stretched-link"><img class="img-fluid w-100"" src="{{ asset('images/approvals.png') }}" alt="invites"></a>
                     <div class="card-body text-center">
                         <!--Title-->
                         <h4 class="card-title">Approvals</h4>
@@ -69,11 +69,11 @@
 
     </div>
 
-    <div class="ml-2 row">
+    <div class="row">
 
         <div class="col-md-4 col-sm-12 p-0 p-md-2 mt-2 d-flex justify-content-center">
             <div class="card w-75">
-                <a href=" {{ route('notifications.create') }} " class="stretched-link"><img class="card-img-top" src="{{ asset('images/comment.jpg') }}" alt="User Management"></a>
+                <a href=" {{ route('notifications.create') }} " class="stretched-link"><img class="img-fluid w-100" src="{{ asset('images/comment.jpg') }}" alt="User Management"></a>
                     <div class="text-center card-body">
                         <!--Title-->
                         <h4 class="card-title">Notifications</h4>
