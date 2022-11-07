@@ -85,7 +85,7 @@
 
     </div>
 
-    <div class="col-md-8 order-first">
+    <div class="col-12 col-md-8 order-first">
         @foreach($articles as $article)
         <div class="py-2">
                 <div class="title-header"><a href="{{ route('articles.show', $article->id) }}" class="">{{ $article->title }} -</a>
