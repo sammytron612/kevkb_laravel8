@@ -23,11 +23,16 @@
                     </div>
                     @endforeach
         @endif
-<div class="smokey mt-5 p-5 border shadow">
-<h1><span class="text-primary fa fa-sticky-note fa-1x mr-3"></span>Sections  @can('isViewer')@else <span><a href="{{ route('sections.create') }}" class="pull-right btn btn-primary">New Section</a></span>@endcan</h1>
+<div class="smokey mt-3 p-3 p-md-5 border shadow">
+<h1 class="d-flex align-items-center justify-content-between">
+    <div><span class="text-primary fa fa-sticky-note fa-1x mr-3"></span>Sections</div>
+      @can('isViewer')@else <span class="d-none d-md-inline"><a href="{{ route('sections.create') }}" class="btn btn-primary">New Section</a></span>
+      <span class="d-inline d-md-none"><a href="{{ route('sections.create') }}" class="btn btn-primary">+</a></span>
+      @endcan
+    </h1>
 @if($html)
 <strong>Double click to view articles for that section</strong>
-<div class="table-responsive-md">
+<div class="table-responsive">
     <table class="table table-inverse table-hover table-style" id="section-table">
     <thead>
     <tr><th>Section Title</th><th></th><th># Of Articles</th><th  style="width:30%"></th></tr>
