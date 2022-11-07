@@ -26,9 +26,9 @@
 <hr>
    @if (count($articles) > 0)
 <div class="row">
-    <div class="col-12 col-md-3 order-last">
+    
         <div class="border-dark row">
-
+            <div class="col-12 col-md-3 order-last">
                 <div class="card w-100">
                     <div style="font-size:18px;" class="bg-info text-center p-1 card-header text-white"><i class="px-1 fa fa-line-chart mr-1"></i>Top rated</div>
                         <div class="card-body">
@@ -41,46 +41,53 @@
                             @endforeach
                         </div>
                 </div>
-        </div>
-
-        <div class="mt-5 border-dark row">
-            <div class="card w-100">
-                <div style="font-size:18px;" class="bg-warning text-center p-1 card-header text-white"><i class="px-1 fa fa-eye mr-1"></i>Most viewed</div>
-                    <div class="card-body">
-                        @foreach($views as $view)
-                        <div>
-                           <a href="{{ route('articles.show', $view->id) }}">{{ $view->title }}</a>
-                           <i class="fa fa-eye mr-1"></i>{{ $view->views }}
-                        </div>
-                        @endforeach
-                    </div>
             </div>
         </div>
 
         <div class="mt-5 border-dark row">
-            <div class="card w-100">
-                <div style="font-size:18px;" class="bg-success text-center p-1 card-header text-white">Most recent</div>
-                    <div class="card-body">
-                        @foreach($recents as $recent)
-                        <div>
-                           <a href="{{ route('articles.show', $recent->id) }}">{{ $recent->title }}</a> - {{ \Carbon\Carbon::parse($recent->created_at)->diffForHumans() }}
+            <div class="col-12 col-md-3 order-last">
+                <div class="card w-100">
+                    <div style="font-size:18px;" class="bg-warning text-center p-1 card-header text-white"><i class="px-1 fa fa-eye mr-1"></i>Most viewed</div>
+                        <div class="card-body">
+                            @foreach($views as $view)
+                            <div>
+                            <a href="{{ route('articles.show', $view->id) }}">{{ $view->title }}</a>
+                            <i class="fa fa-eye mr-1"></i>{{ $view->views }}
+                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    </div>
+                </div>
             </div>
         </div>
 
         <div class="mt-5 border-dark row">
-            <div class="card w-100">
-                <div style="font-size:18px;" class="bg-primary text-center p-1 card-header text-white">Top authors</div>
-                    <div class="card-body">
-                        @foreach($authors as $author)
-                        <div>
-                           <a href="#">{{ $author->name}}</a> - {{ $author->count }}&nbspContribution(s)
+            <div class="col-12 col-md-3 order-last">
+                <div class="card w-100">
+                    <div style="font-size:18px;" class="bg-success text-center p-1 card-header text-white">Most recent</div>
+                        <div class="card-body">
+                            @foreach($recents as $recent)
+                            <div>
+                            <a href="{{ route('articles.show', $recent->id) }}">{{ $recent->title }}</a> - {{ \Carbon\Carbon::parse($recent->created_at)->diffForHumans() }}
+                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    </div>
-            </div>
+                </div>
+            <div class="col-12 col-md-3 order-last">
+        </div>
+
+        <div class="mt-5 border-dark row">
+            <div class="col-12 col-md-3 order-last">
+                <div class="card w-100">
+                    <div style="font-size:18px;" class="bg-primary text-center p-1 card-header text-white">Top authors</div>
+                        <div class="card-body">
+                            @foreach($authors as $author)
+                            <div>
+                            <a href="#">{{ $author->name}}</a> - {{ $author->count }}&nbspContribution(s)
+                            </div>
+                            @endforeach
+                        </div>
+                </div>
+            <div class="col-12 col-md-3 order-last">
         </div>
 
     </div>
@@ -114,7 +121,7 @@
         @endforeach
     </div>
 
-</div>
+
 </div>
 <br>
 <div style="" class="pagination">
