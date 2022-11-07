@@ -27,8 +27,8 @@
    @if (count($articles) > 0)
 <div class="row">
     
-        <div class="border-dark row">
-            <div class="col-12 col-md-3 order-last">
+        <div class="border-dark row order-last">
+            <div class="col-12 col-md-3">
                 <div class="card w-100">
                     <div style="font-size:18px;" class="bg-info text-center p-1 card-header text-white"><i class="px-1 fa fa-line-chart mr-1"></i>Top rated</div>
                         <div class="card-body">
@@ -60,8 +60,8 @@
             </div>
         </div>
 
-        <div class="mt-5 border-dark row">
-            <div class="col-12 col-md-3 order-last">
+        <div class="mt-5 border-dark row order-last">
+            <div class="col-12 col-md-3">
                 <div class="card w-100">
                     <div style="font-size:18px;" class="bg-success text-center p-1 card-header text-white">Most recent</div>
                         <div class="card-body">
@@ -72,11 +72,11 @@
                             @endforeach
                         </div>
                 </div>
-            <div class="col-12 col-md-3 order-last">
+            <div class="col-12 col-md-3">
         </div>
 
-        <div class="mt-5 border-dark row">
-            <div class="col-12 col-md-3 order-last">
+        <div class="mt-5 border-dark row order-last">
+            <div class="col-12 col-md-3">
                 <div class="card w-100">
                     <div style="font-size:18px;" class="bg-primary text-center p-1 card-header text-white">Top authors</div>
                         <div class="card-body">
@@ -87,7 +87,7 @@
                             @endforeach
                         </div>
                 </div>
-            <div class="col-12 col-md-3 order-last">
+            </div>
         </div>
 
     </div>
